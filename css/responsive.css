@@ -1,0 +1,113 @@
+/* ==========================================================================
+   SARSA CORPORATION — responsive.css
+   breakpoints: 1180 · 1024 · 860 · 640 · 480
+   ========================================================================== */
+
+/* ---------- ≤ 1180 : tighten 3-col grids ---------- */
+@media (max-width: 1180px) {
+  .services-grid, .proj-grid { gap: 20px; }
+  .deliver-steps li { padding-right: 14px; }
+}
+
+/* ---------- ≤ 1024 : nav → burger, grids → 2-col ---------- */
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .burger { display: flex; }
+
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .service-card:nth-child(3n + 2) { transform: none; }
+  .service-card:nth-child(3n + 2):hover { transform: translateY(-4px); }
+  .service-card:nth-child(2n + 1) { transform: translateY(20px); }
+  .service-card:nth-child(2n + 1):hover { transform: translateY(16px); }
+
+  .about-grid { grid-template-columns: 1fr; }
+  .about-grid__media { max-width: 560px; }
+  .about-grid__media figcaption { bottom: -30px; }
+
+  .quality-grid { grid-template-columns: 1fr; align-items: start; }
+  .credential { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .masonry { columns: 2; }
+
+  .process-rail { grid-template-columns: 1fr 1fr; }
+  .process-rail::before { display: none; }
+  .process-step { padding: 0 0 8px 30px; border-left: 1px dashed var(--line); }
+  .process-step::before {
+    top: 6px; left: -9px;
+    width: 14px; height: 14px;
+  }
+  .process-step__no { position: static; display: block; margin-bottom: 6px; }
+
+  .service-row, .service-row:nth-child(even) { grid-template-columns: 1fr; }
+  .service-row:nth-child(even) .service-row__media { order: 0; }
+
+  .hero__side { display: none; }
+}
+
+/* ---------- ≤ 860 : deliver strip & why-list stack ---------- */
+@media (max-width: 860px) {
+  .deliver-steps { grid-template-columns: 1fr 1fr; row-gap: 30px; }
+  .why-list { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+/* ---------- ≤ 640 : single column, compact hero ---------- */
+@media (max-width: 640px) {
+  :root { --section-y: 64px; }
+
+  .site-header__inner { height: 72px; }
+
+  .hero { padding-bottom: 96px; }
+  .hero__actions .btn { width: 100%; }
+  .hero__cat { font-size: 10px; gap: 8px 12px; }
+  .hero__cat span:not(:last-child)::after { padding-left: 12px; }
+
+  .scroll-hint { display: none; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card:nth-child(n) { transform: none; }
+  .service-card:nth-child(n):hover { transform: translateY(-4px); }
+
+  .values-list { grid-template-columns: 1fr; }
+
+  .process-rail { grid-template-columns: 1fr; }
+
+  .lead-grid { grid-template-columns: 1fr; }
+  .lead-card { grid-template-columns: 92px 1fr; padding: 26px 22px; }
+  .lead-card__mono { width: 92px; height: 92px; font-size: 26px; }
+
+  .proj-grid { grid-template-columns: 1fr; }
+
+  .deliver-steps { grid-template-columns: 1fr; }
+  .deliver-steps li { border-top: none; border-left: 1px solid var(--line-dark); padding: 0 0 26px 20px; }
+  .deliver-steps li::before { top: 4px; left: -5px; }
+
+  .masonry { columns: 1; }
+  .masonry__item::after { opacity: 1; transform: none; }  /* always show caption on touch */
+
+  .form-grid { grid-template-columns: 1fr; }
+
+  .cta-band__inner { align-items: flex-start; }
+  .cta-band__actions .btn { width: 100%; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-wordmark { font-size: clamp(2.4rem, 13vw, 4rem); }
+  .footer-bottom { justify-content: flex-start; }
+}
+
+/* ---------- ≤ 480 : fine type adjustments ---------- */
+@media (max-width: 480px) {
+  body { font-size: 15px; }
+  .brand__logo { height: 32px; padding: 3px 7px; }
+  .quote-form { padding: 22px 18px; }
+  .map-wrap iframe { height: 260px; }
+}
+
+/* ---------- print ---------- */
+@media print {
+  .site-header, .mobile-menu, .scroll-hint, .gallery-filters, .lightbox,
+  .marquee, .cta-band__actions, .quote-form, .map-wrap { display: none !important; }
+  .hero { min-height: auto; padding: 40px 0; }
+  body { color: #000; }
+}
